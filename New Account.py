@@ -51,13 +51,13 @@ def save_password():
     password = Password_Entry.get().strip()
 
     if not website or not username or not password:
-        messagebox.showwarning("تحذير", "من فضلك املأ كل الحقول.")
+        messagebox.showwarning("Empty Fields", "Please Fill all the Fields  ⚠")
         return
 
     data = load_data()
     data[website] = {"username": username, "password": password}
     save_data(data)
-    messagebox.showinfo("تم", "تم حفظ البيانات بنجاح.")
+    messagebox.showinfo("Done", "Saving password done ✔" )
 
     Website_Entry.delete(0, END)
     username_Entry.delete(0, END)

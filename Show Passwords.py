@@ -1,4 +1,4 @@
-# TODO: Import necessary modules
+#TODO: Import necessary modules
 import os
 from customtkinter import *
 from tkinter import messagebox
@@ -17,25 +17,23 @@ def copy_selected_password():
         data = load_data()
         if site in data:
             pyperclip.copy(data[site]["password"])
-            messagebox.showinfo("تم النسخ", f"تم نسخ باسورد {site} إلى الحافظة.")
+            messagebox.showinfo("copy done","the password for {site} is copied to the clipboard")
 
 
 def load_data():
     if os.path.exists(DATA_FILE):
-        with open(DATA_FILE, "r") as f:
-            return json.load(f)
+        try:
+            with open(DATA_FILE, "r") as f:
+                content = f.read().strip()
+                if not content:
+                    return {}  
+                return json.loads(content)
+        except json.JSONDecodeError:
+            return {}  
     else:
         return {}
 
-def copy_selected_password():
-    selected_index = passwords_listbox.curselection()
-    if selected_index:
-        selected = passwords_listbox.get(selected_index)
-        site = selected.split(" | ")[0]
-        data = load_data()
-        if site in data:
-            pyperclip.copy(data[site]["password"])
-            messagebox.showinfo("تم النسخ", f"تم نسخ باسورد {site} إلى الحافظة.")
+
 
 def go_main():
     root.destroy()
