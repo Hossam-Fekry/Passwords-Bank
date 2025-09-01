@@ -5,14 +5,16 @@ Passwords-Bank is a simple, secure desktop application for storing, generating, 
 ---
 
 ## Table of Contents
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [File Structure](#file-structure)
-- [Security Notes](#security-notes)
-- [Contributing](#contributing)
-- [License](#license)
-
+- [Passwords-Bank](#passwords-bank)
+  - [Table of Contents](#table-of-contents)
+  - [Features](#features)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [File Structure](#file-structure)
+  - [Security Notes](#security-notes)
+  - [Contributing](#contributing)
+  - [License](#license)
+  - [Screenshots](#screenshots)
 ---
 
 ## Features

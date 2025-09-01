@@ -6,7 +6,7 @@ root = CTk()
 root.title("Home Page")
 root.geometry("510x298")
 root.resizable(0,0)
-
+root.iconbitmap("icon.ico")
 #make the functions
 
 def New_Account():
@@ -26,7 +26,7 @@ CTkLabel(root, text="Select Your Action", font=("Arial", 24,"bold")).pack(pady=3
 New_Account_Button = CTkButton(root, text="New Account",fg_color = "#2C73D2" ,hover_color = "#1E56A0",corner_radius = 25,font=("Arial", 20,"bold") ,command=New_Account)
 New_Account_Button.place(x = 50 ,y = 150)
 
-Show_Passwords_Button = CTkButton(root, text="Show Passwords",fg_color = "#2C73D2" ,hover_color = "#1E56A0",corner_radius = 25,font=("Arial", 20,"bold") ,command=Show_Passwords)
+Show_Passwords_Button = CTkButton(root, text="Show Accounts",fg_color = "#2C73D2" ,hover_color = "#1E56A0",corner_radius = 25,font=("Arial", 20,"bold") ,command=Show_Passwords)
 Show_Passwords_Button.place(x = 300 ,y = 150)
 
 ExitButton = CTkButton(root, text="Exit",fg_color = "#B00020" ,hover_color = "#8C001A",corner_radius = 25,font=("Arial", 20,"bold") ,command=lambda: root.destroy())

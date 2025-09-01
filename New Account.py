@@ -8,7 +8,10 @@ import os
 
 root = CTk()
 root.title("New Account")
-root.geometry("471x457")
+root.geometry("481x457")
+root.resizable(0,0)
+root.iconbitmap("icon.ico")
+
 
 DATA_FILE = "passwords.json"
 
@@ -28,7 +31,7 @@ def load_data():
             try:
                 return json.load(f)
             except json.JSONDecodeError:
-                return {}  # لو الملف فاضي أو فيه مشكلة في التنسيق
+                return {}  
     else:
         return {}
 
@@ -66,11 +69,11 @@ def save_password():
 CTkLabel(root, text="New Account", font=("Arial", 24,"bold")).pack(pady=30)
 
 CTkLabel(root, text="The Website", font=("Arial", 16,"bold")).place(x = 20, y = 130)
-Website_Entry = CTkEntry(root, font=("Arial", 20), corner_radius=25, width=200, placeholder_text="Enter the Website")
+Website_Entry = CTkEntry(root, font=("Arial", 20), corner_radius=25, width=310, placeholder_text="Enter the Website")
 Website_Entry.place(x = 150, y = 130)
 
 CTkLabel(root, text="user name or Email", font=("Arial", 16,"bold")).place(x = 20, y = 180)
-username_Entry = CTkEntry(root, font=("Arial", 20), corner_radius=25, width=210, placeholder_text="Enter the username")
+username_Entry = CTkEntry(root, font=("Arial", 20), corner_radius=25, width=295, placeholder_text="Enter the username")
 username_Entry.place(x = 170, y = 180)
 
 
@@ -78,7 +81,7 @@ CTkLabel(root, text="The Password", font=("Arial", 16,"bold")).place(x = 20, y =
 Password_Entry = CTkEntry(root, font=("Arial", 20), corner_radius=25, width=310, placeholder_text="Enter the Password if you have")
 Password_Entry.place(x = 150, y = 230)
 
-Save_password_Button = CTkButton(root, text="Save Password",fg_color = "#2C73D2" ,hover_color = "#1E56A0",corner_radius = 25,font=("Arial", 20,"bold") ,command=save_password)
+Save_password_Button = CTkButton(root, text="Save Account",fg_color = "#2C73D2" ,hover_color = "#1E56A0",corner_radius = 25,font=("Arial", 20,"bold") ,command=save_password)
 Save_password_Button.place(x = 20 ,y = 300)
 
 Generate_Password_Button = CTkButton(root, text="Generate Password",fg_color = "#2C73D2" ,hover_color = "#1E56A0",corner_radius = 25,font=("Arial", 20,"bold"), command=generate_password)
