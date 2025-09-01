@@ -5,6 +5,7 @@ import string
 import random
 from tkinter import messagebox
 import os
+from cryptography.fernet import Fernet
 
 root = CTk()
 root.title("New Account")
@@ -12,6 +13,11 @@ root.geometry("481x457")
 root.resizable(0,0)
 root.iconbitmap("icon.ico")
 
+with open("key.key", "rb") as KeyFile:
+    key = KeyFile.read()
+
+
+cipher = Fernet(key)
 
 DATA_FILE = "passwords.json"
 
@@ -58,7 +64,8 @@ def save_password():
         return
 
     data = load_data()
-    data[website] = {"username": username, "password": password}
+    encrypted_password = cipher.encrypt(password.encode()).decode()
+    data[website] = {"username": username, "password": encrypted_password}
     save_data(data)
     messagebox.showinfo("Done", "Saving password done ✔" )
 

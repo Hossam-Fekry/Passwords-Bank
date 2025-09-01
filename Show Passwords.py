@@ -6,6 +6,12 @@ import subprocess
 import tkinter as tk
 import json
 import pyperclip
+from cryptography.fernet import Fernet
+
+with open("key.key", "rb") as key_file:
+    key = key_file.read()
+
+cipher = Fernet(key)
 
 DATA_FILE = "passwords.json"
 
@@ -16,7 +22,9 @@ def copy_selected_password():
         site = selected.split(" | ")[0]
         data = load_data()
         if site in data:
-            pyperclip.copy(data[site]["password"])
+            password = cipher.decrypt(data[site]["password"].encode()).decode()
+            print(password)
+            pyperclip.copy(password)
             messagebox.showinfo("copy done",f"the password for {site} is copied to the clipboard")
 
 
