@@ -13,7 +13,8 @@ root.geometry("481x457")
 root.resizable(0,0)
 root.iconbitmap("icon.ico")
 
-with open("key.key", "rb") as KeyFile:
+with open("key.key", "rb" \
+"") as KeyFile:
     key = KeyFile.read()
 
 
@@ -21,7 +22,7 @@ cipher = Fernet(key)
 
 DATA_FILE = "passwords.json"
 
-def go_main():
+def go_main(event = None):
     root.destroy()
     subprocess.run(["python", "Home Page.py"])
 
@@ -96,5 +97,8 @@ Generate_Password_Button.place(x = 250 ,y = 300)
 
 back_button = CTkButton(root, text="Back to main", fg_color="#333333", hover_color="#0F0F0F", corner_radius=5, font=("Arial", 20, "bold"), command=go_main)
 back_button.place(x=20, y=400)
+
+root.bind('<Escape>', go_main)
+
 
 root.mainloop()

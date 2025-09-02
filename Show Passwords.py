@@ -62,7 +62,7 @@ def load_data():
 
 
 
-def go_main():
+def go_main(event = None):
     root.destroy()
     subprocess.run(["python", "Home Page.py"])
 
@@ -96,5 +96,5 @@ def update_passwords_list():
 
 #load the data from the file
 update_passwords_list()
-
+root.bind('<Escape>', go_main)
 root.mainloop()
