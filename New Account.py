@@ -13,8 +13,7 @@ root.geometry("481x457")
 root.resizable(0,0)
 root.iconbitmap("icon.ico")
 
-with open("key.key", "rb" \
-"") as KeyFile:
+with open("key.key", "rb") as KeyFile:
     key = KeyFile.read()
 
 
