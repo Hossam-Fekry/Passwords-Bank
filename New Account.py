@@ -7,11 +7,6 @@ from tkinter import messagebox
 import os
 from cryptography.fernet import Fernet
 
-root = CTk()
-root.title("New Account")
-root.geometry("481x457")
-root.resizable(0,0)
-root.iconbitmap("icon.ico")
 
 with open("key.key", "rb") as KeyFile:
     key = KeyFile.read()
@@ -72,6 +67,17 @@ def save_password():
     Website_Entry.delete(0, END)
     username_Entry.delete(0, END)
     Password_Entry.delete(0, END)
+
+with open("settings.json", "r") as settings_file:
+    settings = json.load(settings_file)
+
+
+root = CTk()
+root.title("New Account")
+root.geometry("481x457")
+root.resizable(0,0)
+root.iconbitmap("icon.ico")
+set_appearance_mode(settings["Theme"])
 
 CTkLabel(root, text="New Account", font=("Arial", 24,"bold")).pack(pady=30)
 

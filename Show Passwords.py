@@ -8,6 +8,10 @@ import json
 import pyperclip
 from cryptography.fernet import Fernet
 
+
+with open("settings.json", "r") as settings_file:
+    settings = json.load(settings_file)
+
 with open("key.key", "rb") as key_file:
     key = key_file.read()
 
@@ -70,6 +74,7 @@ root = CTk()
 root.geometry("604x455")
 root.iconbitmap("icon.ico")
 root.title("Show Passwords")
+set_appearance_mode(settings["Theme"])
 
 CTkLabel(root, text="Saved Accounts", font=("Arial", 24)).pack(pady=20) 
 

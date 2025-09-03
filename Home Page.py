@@ -2,12 +2,18 @@
 from customtkinter import *
 import subprocess
 from tkinter import messagebox
+import json
+
+
+with open("settings.json", "r") as settings_file:
+    settings = json.load(settings_file)
 
 root = CTk()
 root.title("Home Page")
 root.geometry("510x298")
 root.resizable(0,0)
 root.iconbitmap("icon.ico")
+set_appearance_mode(settings["Theme"])
 #make the functions
 
 def close_app(event = None):
